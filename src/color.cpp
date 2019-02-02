@@ -12,15 +12,21 @@ Color::Color(std::string newName, std::string newRGB) {
   this->_price = 1;
 }
 
-std::string	Color::getName() {
+Color::Color(const Color &obj) {
+  this->_name = obj.getName();
+  this->_rgb = obj.getRGB();
+  this->_price = obj.getPrice();
+}
+
+std::string	Color::getName() const {
   return (this->_name);
 }
 
-std::string	Color::getRGB() {
+std::string	Color::getRGB() const {
   return (this->_rgb);
 }
 
-int		Color::getPrice() {
+int		Color::getPrice() const {
   return (this->_price);
 }
 
@@ -34,6 +40,13 @@ void		Color::setRGB(std::string newRGB) {
 
 void		Color::setPrice(int newPrice) {
   this->_price = newPrice;
+}
+
+Color		&Color::operator=(Color const &obj) {
+  this->_name = obj.getName();
+  this->_rgb = obj.getRGB();
+  this->_price = obj.getPrice();
+  return (*this);
 }
 
 void		Color::dump() {

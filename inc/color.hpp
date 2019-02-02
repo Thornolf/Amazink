@@ -12,13 +12,15 @@ private:
 public:
   Color();
   Color(std::string, std::string);
-  std::string	getName();
-  std::string	getRGB();
-  int		getPrice();
+  Color(const Color &);
+  std::string	getName() const;
+  std::string	getRGB() const;
+  int		getPrice() const;
   void		setName(std::string);
   void		setRGB(std::string);
   void		setPrice(int);
   void		dump();
+  Color		&operator=(Color const &);
   virtual ~Color();
 };
 

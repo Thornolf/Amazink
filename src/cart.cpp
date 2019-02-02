@@ -24,11 +24,20 @@ void	Cart::setItems(Color *newItems) {
 }
 
 void	Cart::addToCart(const Color &newItem) {
-  this->_size += 1;
-  this->_items = new Color[this->_size];
-  this->_items[this->_size - 1] = newItem;
-  //TODO adding a new item to the cart
-  // Need to dynamicaly allocate data 
+  if (this->_size == 0) {
+    this->_size = 1;
+    this->_items = new Color[this->_size + 1];
+    this->_items[this->_size - 1] = newItem; 
+  } else {
+    this->_size += 1;
+    Color *tmp = new Color[this->_size + 1];
+    for (int index = 0; index < this->_size; index++) {
+      tmp[index] = this->_items[index];
+    }
+    delete[] this->_items;
+    this->_items = tmp;
+    this->_items[this->_size - 1] = newItem;
+  }
 }
 
 void	Cart::removeFromCartByItem(Color itemToDelete) {
