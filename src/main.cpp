@@ -17,8 +17,10 @@ int		main(int argc, char **argv)
   cart->addToCart(color->getArrayColor()[68]);
   cart->addToCart(color->getArrayColor()[35]);
   cart->addToCart(color->getArrayColor()[8]);
-  for (int i = 0; i < cart->getSize(); i++) {
-    cart->getItems()[i].dump();
-  }
+  std::cout << "--- BEFORE DELETION | size : " << cart->getSize() << std::endl;
+  cart->displayCart();
+  cart->removeFromCartByIndex(3);
+  std::cout << "--- AFTER DELETION | size : " << cart->getSize() << std::endl;
+  cart->displayCart();
   return (0);
 }

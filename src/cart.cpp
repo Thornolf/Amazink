@@ -46,16 +46,31 @@ void	Cart::removeFromCartByItem(Color itemToDelete) {
 }
 
 void	Cart::removeFromCartByIndex(int index) {
-  (void)index;
-  //TODO find by index et delete it
+  int newSize = this->_size - 1;
+  if (index < this->_size && index >= 0) {
+    Color *tmp = new Color[newSize + 1];
+    for (int i = 0, j =  0; i < this->_size; i++, j++) {
+      if (j == index)
+	j++;
+      tmp[i] = this->_items[j];
+    }
+    this->_size = newSize;
+    delete[] this->_items;
+    this->_items = tmp;
+  }
 }
 
 void	Cart::clearCart() {
-  //TODO delete the array & recreate it with a size of 0
+  this->_size = 0;
+  Color *tmp = new Collor[this->_size + 1];
+  delete[] this->_items;
+  this->_items = tmp;
 }
 
 void	Cart::displayCart() const {
-  //TODO dump the cart properly
+  for (int i = 0; i < this->_size; i++) {
+    this->_items[i].dump();
+  }
 }
 
 Cart::~Cart() {
