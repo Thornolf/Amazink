@@ -1,0 +1,90 @@
+Almond,#EFDECD
+Ao (English),#008000
+Aquamarine,#7FFFD4
+Army green,#4B5320
+Asparagus,#87A96B
+Blue (Munsell),#0093AF
+Blue (pigment),#333399
+Blue yonder,#5072A7
+Blue-violet,#8A2BE2
+Bright navy blue,#1974D2
+Bronze,#CD7F32
+Burnt umber,#8A3324
+Cafe au lait,#A67B5B
+Cameo pink,#EFBBCC
+Celeste,#B2FFFF
+Coral,#FF7F50
+Cultured,#F5F5F5
+Dark orchid,#9932CC
+Desert,#C19A6B
+Dingy Dungeon,#C53151
+Dodger blue,#1E90FF
+Fandango pink,#DE5285
+Fashion fuchsia,#F400A1
+Fiery rose,#FF5470
+Firebrick,#B22222
+French lilac,#86608E
+French lime,#9EFD38
+French raspberry,#C72C48
+Generic viridian,#007F66
+Golden poppy,#FCC200
+Gray (X11 gray),#BEBEBE
+Green (Munsell),#00A877
+Imperial red,#ED2939
+Isabelline,#F4F0EC
+Jungle green,#29AB87
+Khaki (Khaki),#C3B091
+Lavender (floral),#B57EDC
+Lavender (web),#E6E6FA
+Light yellow,#FFFFE0
+MSU green,#18453B
+Magenta (dye),#CA1F7B
+Magenta (process),#FF0090
+Maximum blue green,#30BFBF
+Maximum blue purple,#ACACE6
+Maximum yellow red,#F2BA49
+Medium candy apple red,#E2062C
+Medium sea green,#3CB371
+Middle red purple,#A55353
+Mikado yellow,#FFC40C
+Morning blue,#8DA399
+Mystic maroon,#AD4379
+Nickel,#727472
+Olivine,#9AB973
+Orange (Crayola),#FF7538
+Orange (Pantone),#FF5800
+Orange,#FF6600
+Pale silver,#C9C0BB
+Papaya whip,#FFEFD5
+Paris Green,#50C878
+Persian pink,#F77FBE
+Phthalo blue,#000F89
+Pink (Pantone),#D74894
+Plum (web),#DDA0DD
+Red (Crayola),#EE204D
+Rhythm,#777696
+Rifle green,#444C38
+Rose bonbon,#F9429E
+Rose madder,#E32636
+Rosewood,#65000B
+Safety orange,#FF7800
+Sandy brown,#F4A460
+Screamin' Green,#66FF66
+Silver (Crayola),#C9C0BB
+Sinopia,#CB410B
+Snow,#FFFAFA
+Spanish orange,#E86100
+Tea green,#D0F0C0
+Teal,#008080
+Turquoise green,#A0D6B4
+USAFA blue,#004F98
+Ultra pink,#FF6FFF
+United Nations blue,#5B92E5
+Vanilla,#F3E5AB
+Vermilion,#D9381E
+Violet,#8F00FF
+Violet-blue (Crayola),#766EC8
+Violet-red,#F75394
+Wild Strawberry,#FF43A4
+Wisteria,#C9A0DC
+Yellow Orange,#FF9505

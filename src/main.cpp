@@ -1,14 +1,16 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 
-int main(int argc, char **argv)
+#include "color.hpp"
+#include "colorChart.hpp"
+
+int		main(int argc, char **argv)
 {
   (void)argc;
   (void)argv;
-  std::string* ptr = new std::string[argc];
-
-  for (int index = 1 ; index < argc; index++) {
-    ptr[index] = argv[index];
-    std::cout << "L'attribu numéro " << index << " du tableau est "  << ptr[index] << std::endl;
-  }
+  ColorChart *color = new ColorChart("couleurs.txt");
+  color->getArrayColor()[18].dump();
+  std::cout << "There is " <<  color->getSize() << " colors availables" << std::endl;
   return (0);
 }
