@@ -41,8 +41,16 @@ void	Cart::addToCart(const Color &newItem) {
 }
 
 void	Cart::removeFromCartByItem(Color itemToDelete) {
-  (void)itemToDelete;
-  //TODO find the item to delete and delete it from the array
+  int newSize = this->_size - 1;
+  Color *tmp = new Color[newSize + 1];
+  for (int i = 0, j =  0; i < this->_size; i++, j++) {
+    if (this->_items[j].getName() == itemToDelete.getName())
+      j++;
+    tmp[i] = this->_items[j];
+  }
+    this->_size = newSize;
+    delete[] this->_items;
+    this->_items = tmp;
 }
 
 void	Cart::removeFromCartByIndex(int index) {
@@ -62,7 +70,7 @@ void	Cart::removeFromCartByIndex(int index) {
 
 void	Cart::clearCart() {
   this->_size = 0;
-  Color *tmp = new Collor[this->_size + 1];
+  Color *tmp = new Color[this->_size + 1];
   delete[] this->_items;
   this->_items = tmp;
 }
