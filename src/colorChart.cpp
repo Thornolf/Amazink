@@ -40,7 +40,6 @@ ColorChart::ColorChart(std::string fileName) {
     {
       this->_arrayColor[index].setName(parsingName(line));
       this->_arrayColor[index].setRGB(parsingRGB(line));
-      this->_arrayColor[index].dump();
       index++;
     }
     file.close();
