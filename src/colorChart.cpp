@@ -67,7 +67,7 @@ void	ColorChart::setArrayColor(Color *newArrayColor) {
 
 void	ColorChart::display(){
   for (int i = 0; i < this->_size; i++) {
-    std::cout << "[" << i << "]";
+    std::cout << "[" << i << "] ";
     this->_arrayColor[i].dump();
   }
 }

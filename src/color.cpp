@@ -50,9 +50,9 @@ Color		&Color::operator=(Color const &obj) {
 }
 
 void		Color::dump() {
-  std::cout << "Name is : " << getName();
-  std::cout << " RGB is : " << getRGB();
-  std::cout << " price is : " << getPrice() << std::endl;
+  std::cout << getName();
+  std::cout << " | " << getRGB();
+  std::cout << " | " << getPrice() << " $" << std::endl;
 }
 
 Color::~Color() {}

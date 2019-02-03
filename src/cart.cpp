@@ -27,7 +27,6 @@ void	Cart::add(const Color &newItem) {
   if (this->_size == 0) {
     this->_size = 1;
     this->_items = new Color[this->_size + 1];
-    this->_items[this->_size - 1] = newItem; 
   } else {
     this->_size += 1;
     Color *tmp = new Color[this->_size + 1];
@@ -36,8 +35,14 @@ void	Cart::add(const Color &newItem) {
     }
     delete[] this->_items;
     this->_items = tmp;
-    this->_items[this->_size - 1] = newItem;
   }
+  this->_items[this->_size - 1] = newItem;
+  std::cout << "You added " << newItem.getName() << " to your cart." << std::endl;
+  std::cout << "You have now " << this->_size;
+  if (this->_size > 1)
+    std::cout << " items in your cart." << std::endl;
+  else
+    std::cout << " item in your cart." << std::endl;
 }
 
 void	Cart::removeByItem(Color itemToDelete) {
@@ -77,6 +82,8 @@ void	Cart::clear() {
 }
 
 void	Cart::display() const {
+  if (this->_size == 0)
+    std::cout << "The cart is empty." << std::endl;
   for (int i = 0; i < this->_size; i++) {
     this->_items[i].dump();
   }
