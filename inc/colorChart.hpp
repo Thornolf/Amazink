@@ -13,10 +13,11 @@ private:
 public:
   ColorChart();
   ColorChart(std::string);
-  int	getSize();
-  Color	*getArrayColor();
+  int	getSize() const;
+  Color	*getArrayColor() const;
   void	setSize(int);
   void	setArrayColor(Color *);
+  void	display();
   virtual ~ColorChart();
 };
 

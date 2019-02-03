@@ -16,11 +16,11 @@ public:
   Color	*getItems() const;
   void	setSize(int);
   void	setItems(Color *);
-  void	addToCart(const Color&);
-  void	removeFromCartByItem(Color);
-  void	removeFromCartByIndex(int);
-  void	clearCart();
-  void	displayCart() const;
+  void	add(const Color&);
+  void	removeByItem(Color);
+  void	removeByIndex(int);
+  void	clear();
+  void	display() const;
   virtual ~Cart();  
 };
 

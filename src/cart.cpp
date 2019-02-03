@@ -23,7 +23,7 @@ void	Cart::setItems(Color *newItems) {
   this->_items = newItems;
 }
 
-void	Cart::addToCart(const Color &newItem) {
+void	Cart::add(const Color &newItem) {
   if (this->_size == 0) {
     this->_size = 1;
     this->_items = new Color[this->_size + 1];
@@ -40,7 +40,7 @@ void	Cart::addToCart(const Color &newItem) {
   }
 }
 
-void	Cart::removeFromCartByItem(Color itemToDelete) {
+void	Cart::removeByItem(Color itemToDelete) {
   int newSize = this->_size - 1;
   Color *tmp = new Color[newSize + 1];
   for (int i = 0, j =  0; i < this->_size; i++, j++) {
@@ -53,9 +53,9 @@ void	Cart::removeFromCartByItem(Color itemToDelete) {
     this->_items = tmp;
 }
 
-void	Cart::removeFromCartByIndex(int index) {
+void	Cart::removeByIndex(int index) {
   int newSize = this->_size - 1;
-  if (index < this->_size && index >= 0) {
+  if (index < this->_size || index >= 0) {
     Color *tmp = new Color[newSize + 1];
     for (int i = 0, j =  0; i < this->_size; i++, j++) {
       if (j == index)
@@ -68,18 +68,20 @@ void	Cart::removeFromCartByIndex(int index) {
   }
 }
 
-void	Cart::clearCart() {
+void	Cart::clear() {
   this->_size = 0;
   Color *tmp = new Color[this->_size + 1];
   delete[] this->_items;
   this->_items = tmp;
+  std::cout << "Your cart has been emptied." << std::endl;
 }
 
-void	Cart::displayCart() const {
+void	Cart::display() const {
   for (int i = 0; i < this->_size; i++) {
     this->_items[i].dump();
   }
 }
 
 Cart::~Cart() {
+  delete[] this->_items;
 }

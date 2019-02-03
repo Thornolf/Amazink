@@ -49,11 +49,11 @@ ColorChart::ColorChart(std::string fileName) {
   }
 }
 
-int	ColorChart::getSize() {
+int	ColorChart::getSize() const {
   return (this->_size);
 }
 
-Color *ColorChart::getArrayColor() {
+Color *ColorChart::getArrayColor() const {
   return (this->_arrayColor);
 }
 
@@ -63,6 +63,13 @@ void	ColorChart::setSize(int newSize) {
 
 void	ColorChart::setArrayColor(Color *newArrayColor) {
   this->_arrayColor = newArrayColor;
+}
+
+void	ColorChart::display(){
+  for (int i = 0; i < this->_size; i++) {
+    std::cout << "[" << i << "]";
+    this->_arrayColor[i].dump();
+  }
 }
 
 ColorChart::~ColorChart() {}
