@@ -5,6 +5,10 @@ Cart::Cart() {
   this->_items = new Color[this->_size];
 }
 
+Cart::Cart(const Cart &obj) {
+  this->_size = obj.getSize();
+  this->_items = obj.getItems();
+}
 int	Cart::getSize() const {
   return (this->_size);
 }

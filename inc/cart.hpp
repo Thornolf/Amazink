@@ -12,6 +12,7 @@ private:
   Color	*_items;
 public:
   Cart();
+  Cart(const Cart &);
   int	getSize() const;
   Color	*getItems() const;
   void	setSize(int);
