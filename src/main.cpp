@@ -7,6 +7,20 @@
 #include	"cart.hpp"
 #include	"receipt.hpp"
 
+static void	displayStargate(void) {
+  std::string line;
+  std::ifstream file("stargate.txt");
+  if (file.is_open()) {
+    while(getline(file, line)) {
+      std::cout << line << std::endl;
+    }
+  file.close();
+  }
+  else {
+    std::cout << "Unable to open file" << std::endl;
+  }
+}
+
 static void	wrongCommand(void) {
   std::cout << "The command is incorrect. Please type help to have the full command list." << std::endl;
 }
@@ -31,7 +45,7 @@ static void	helper(void) {
 int		main(int argc, char **argv)
 {
   std::cout << "--- Welcome to Amazink ! ---" << std::endl;
-  std::cout << "This program was made by Remi GIACOMMETI & Quentin BAUDET" << std::endl;
+  std::cout << "This program was made by Remi GIACOMETTI & Quentin BAUDET" << std::endl;
   std::cout << "Please, don't break anything.\n" << std::endl;
   helper();
   (void)argc;
@@ -39,7 +53,6 @@ int		main(int argc, char **argv)
   std::string cmd;
   ColorChart *color = new ColorChart("couleurs.txt");
   Cart *cart = new Cart();
-  (void)color;
   while (cmd != "exit" && cmd != "quit") {
     std::getline(std::cin, cmd);
     if (cmd == "clear") {
@@ -71,6 +84,9 @@ int		main(int argc, char **argv)
       } else {
 	std::cout << "You need to add an item to buy something." << std::endl;
       }
+    }
+    else if (cmd == "stargate") {
+      displayStargate();
     }
     else if (cmd == "help") {
       helper();

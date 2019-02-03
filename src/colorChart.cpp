@@ -45,27 +45,27 @@ ColorChart::ColorChart(std::string fileName) {
     file.close();
   }
   else {
-    std::cout << "Unable to open file";
+    std::cout << "Unable to open file" << std::endl;
   }
 }
 
-int	ColorChart::getSize() const {
+int		ColorChart::getSize() const {
   return (this->_size);
 }
 
-Color *ColorChart::getArrayColor() const {
+Color		*ColorChart::getArrayColor() const {
   return (this->_arrayColor);
 }
 
-void	ColorChart::setSize(int newSize) {
+void		ColorChart::setSize(int newSize) {
   this->_size = newSize;
 }
 
-void	ColorChart::setArrayColor(Color *newArrayColor) {
+void		ColorChart::setArrayColor(Color *newArrayColor) {
   this->_arrayColor = newArrayColor;
 }
 
-void	ColorChart::display(){
+void		ColorChart::display(){
   for (int i = 0; i < this->_size; i++) {
     std::cout << "[" << i << "] ";
     this->_arrayColor[i].dump();
