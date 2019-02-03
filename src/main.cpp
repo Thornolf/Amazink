@@ -11,7 +11,7 @@ static void	wrongCommand(void) {
 }
 
 static int	isValid(int size, int value) {
-  if (value < 0 && value >= size) {//TODO test with value of size max
+  if (value < 0 || value >= size) {
     wrongCommand();
     return (-1);
   }
@@ -41,7 +41,9 @@ int		main(int argc, char **argv)
 	cart->add(color->getArrayColor()[selector]);
     }
     else if (cmd.find("remove")!= std::string::npos) {
-      std::cout << "Fnding Add" << std::endl;
+      int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
+      if (selector != -1)
+	cart->removeByIndex(selector);
     }
     else if (cmd.find("display")!= std::string::npos) {
       if (cmd.substr(cmd.find(" ") + 1 ) == "color")

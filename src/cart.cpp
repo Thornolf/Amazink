@@ -60,8 +60,9 @@ void	Cart::removeByItem(Color itemToDelete) {
 
 void	Cart::removeByIndex(int index) {
   int newSize = this->_size - 1;
-  if (index < this->_size || index >= 0) {
+  if (index < this->_size && index >= 0) {
     Color *tmp = new Color[newSize + 1];
+    std::cout << "You removed " << this->_items[index].getName() << "from your cart." << std::endl;
     for (int i = 0, j =  0; i < this->_size; i++, j++) {
       if (j == index)
 	j++;
@@ -70,6 +71,9 @@ void	Cart::removeByIndex(int index) {
     this->_size = newSize;
     delete[] this->_items;
     this->_items = tmp;
+  }
+  else {
+    std::cout << "The item requested is not in the cart." << std::endl;
   }
 }
 
