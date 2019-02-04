@@ -7,9 +7,9 @@
 #include	"cart.hpp"
 #include	"receipt.hpp"
 
-static void	displayStargate(void) {
+static void	displayStargate(std::string fileName) {
   std::string line;
-  std::ifstream file("stargate.txt");
+  std::ifstream file(fileName);
   if (file.is_open()) {
     while(getline(file, line)) {
       std::cout << line << std::endl;
@@ -17,7 +17,7 @@ static void	displayStargate(void) {
   file.close();
   }
   else {
-    std::cout << "Unable to open file" << std::endl;
+    throw fileName;
   }
 }
 
@@ -51,48 +51,55 @@ int		main(int argc, char **argv)
   (void)argc;
   (void)argv;
   std::string cmd;
-  ColorChart *color = new ColorChart("couleurs.txt");
-  Cart *cart = new Cart();
-  while (cmd != "exit" && cmd != "quit") {
-    std::getline(std::cin, cmd);
-    if (cmd == "clear") {
-      cart->clear();
-    }
-    else if (cmd.find("add")!= std::string::npos) {
-      int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
-      if (selector != -1)
-	cart->add(color->getArrayColor()[selector]);
-    }
-    else if (cmd.find("remove")!= std::string::npos) {
-      int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
-      if (selector != -1)
-	cart->removeByIndex(selector);
-    }
-    else if (cmd.find("display")!= std::string::npos) {
-      if (cmd.substr(cmd.find(" ") + 1 ) == "color")
-	color->display();
-      else if (cmd.substr(cmd.find(" ") + 1 ) == "cart")
-	cart->display();
+  try {
+    ColorChart *color = new ColorChart("couleurs.txt");
+    Cart *cart = new Cart();
+    while (cmd != "exit" && cmd != "quit") {
+      std::getline(std::cin, cmd);
+      if (cmd == "clear") {
+	cart->clear();
+      }
+      else if (cmd.find("add")!= std::string::npos) {
+	int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
+	if (selector != -1)
+	  cart->add(color->getArrayColor()[selector]);
+      }
+      else if (cmd.find("remove")!= std::string::npos) {
+	int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
+	if (selector != -1)
+	  cart->removeByIndex(selector);
+      }
+      else if (cmd.find("display")!= std::string::npos) {
+	if (cmd.substr(cmd.find(" ") + 1 ) == "color")
+	  color->display();
+	else if (cmd.substr(cmd.find(" ") + 1 ) == "cart")
+	  cart->display();
+	else
+	  wrongCommand();
+      }
+      else if (cmd == "check out") {
+	if (cart->getSize() > 0) {
+	  Receipt *receipt = new Receipt(cart->getSize(), cart);
+	  receipt->display();
+	  cart->clear();
+	} else {
+	  std::cout << "You need to add an item to buy something." << std::endl;
+	}
+      }
+      else if (cmd == "stargate") {
+	displayStargate("stargate.txt");
+      }
+      else if (cmd == "help") {
+	helper();
+      }
       else
 	wrongCommand();
     }
-    else if (cmd == "check out") {
-      if (cart->getSize() > 0) {
-	Receipt *receipt = new Receipt(cart->getSize(), cart);
-	receipt->display();
-	cart->clear();
-      } else {
-	std::cout << "You need to add an item to buy something." << std::endl;
-      }
-    }
-    else if (cmd == "stargate") {
-      displayStargate();
-    }
-    else if (cmd == "help") {
-      helper();
-    }
-    else
-      wrongCommand();
+  }
+  catch (std::string e) {
+    std::cout << "\nImpossible to open the file: " << e << std::endl;
+    std::cout << "The program will have to shutdown, please contact your local administrator." << std::endl;
+    std::cout << "Or contact us at contact@amazink.ca" << std::endl;
   }
   return (0);
 }

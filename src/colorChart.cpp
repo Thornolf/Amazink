@@ -27,7 +27,7 @@ ColorChart::ColorChart(std::string fileName) {
     while (getline(file, line))
       index++;
   } else {
-    std::cout << "Unable to open file to count";
+    throw fileName;
   }
   this->_size = index;
   this->_arrayColor = new Color[this->_size];
@@ -45,7 +45,7 @@ ColorChart::ColorChart(std::string fileName) {
     file.close();
   }
   else {
-    std::cout << "Unable to open file" << std::endl;
+    throw fileName;
   }
 }
 
