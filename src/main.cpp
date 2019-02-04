@@ -37,14 +37,14 @@ static void	helper(void) {
   std::cout << "\tList of every command :" << std::endl;
   std::cout << "\"exit\" or \"quit\" will terminate the program." << std::endl;
   std::cout << "\"add |integer|\" or \"remove |integer|\" will add or remove an item from your cart." << std::endl;
-  std::cout << "\"checkout out\" will generate the receipt." << std::endl;
+  std::cout << "\"check out\" will generate the receipt." << std::endl;
   std::cout << "\"display color|cart\" will display the color chart or the content of your cart." << std::endl;
   std::cout << "\"help\" will generate this message again. Very useful.\n" << std::endl;
 }
 
 int		main(int argc, char **argv)
 {
-  std::cout << "--- Welcome to Amazink ! ---" << std::endl;
+  std::cout << "\t\t--- Welcome to Amazink ! ---\n" << std::endl;
   std::cout << "This program was made by Remi GIACOMETTI & Quentin BAUDET" << std::endl;
   std::cout << "Please, don't break anything.\n" << std::endl;
   helper();

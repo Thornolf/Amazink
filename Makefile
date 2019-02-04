@@ -1,14 +1,14 @@
 include source.mk
 
-BINARY				=	amazink
+BINARY					=	amazink
 
 CC					=	g++
 
 RM					=	@rm -vf
 
-CXXFLAGS			=	-fPIC -W -Wall -Wextra -Werror -I./inc/
+CXXFLAGS				=	-W -Wall -Wextra -Werror -I./inc/
 
-DEBUG				?=	no
+DEBUG					?=	no
 
 ifeq					($(DEBUG), yes)
 CFLAGS				=	-g -ggdb3
@@ -21,7 +21,7 @@ $(BINARY):				$(OBJ_BINARY)
 						$(CC) $(OBJ_BINARY) -o $(BINARY)
 
 clean:
-						$(RM) $(OBJ_BINARY)
+					$(RM) $(OBJ_BINARY)
 
 fclean:					clean
-						$(RM) $(BINARY)
+					$(RM) $(BINARY)

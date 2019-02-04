@@ -67,7 +67,7 @@ void	Cart::removeByIndex(int index) {
   int newSize = this->_size - 1;
   if (index < this->_size && index >= 0) {
     Color *tmp = new Color[newSize + 1];
-    std::cout << "You removed " << this->_items[index].getName() << "from your cart." << std::endl;
+    std::cout << "You removed " << this->_items[index].getName() << " from your cart." << std::endl;
     for (int i = 0, j =  0; i < this->_size; i++, j++) {
       if (j == index)
 	j++;
@@ -94,6 +94,7 @@ void	Cart::display() const {
   if (this->_size == 0)
     std::cout << "The cart is empty." << std::endl;
   for (int i = 0; i < this->_size; i++) {
+    std::cout << "[" << i << "] ";
     this->_items[i].dump();
   }
 }
