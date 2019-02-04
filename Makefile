@@ -1,6 +1,6 @@
 include source.mk
 
-BINARY				=	amazon
+BINARY				=	amazink
 
 CC					=	g++
 
