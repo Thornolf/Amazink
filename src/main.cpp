@@ -21,19 +21,42 @@ static void	displayStargate(std::string fileName) {
   }
 }
 
-static void	wrongCommand(void) {
+static	void	wrongCommand(void) {
   std::cout << "The command is incorrect. Please type help to have the full command list." << std::endl;
 }
 
-static int	isValid(int size, int value) {
-  if (value < 0 || value >= size) {
+static	bool	isDigit(std::string rawValue) {
+  for (unsigned int index = 0; index < rawValue.length(); index++) {
+    if ((rawValue[index] < '0' || rawValue[index] > '9')) {
+      throw (-1);
+    }
+  }
+  return (true);
+}
+
+static	int	isValid(int size, std::string rawValue) {
+  int value;
+  try {
+    if (isDigit(rawValue) == false) {
+      throw (-1);
+    }
+    value = std::stoi(rawValue);
+    if (value < 0 || value >= size) {
+      throw (-1);
+    }
+    return (value);
+  }
+  catch (int e) {
     wrongCommand();
     return (-1);
   }
-  return (value);
+  catch (const std::out_of_range& e) {
+    wrongCommand();
+    return (-1);
+  }
 }
 
-static void	helper(void) {
+static	void	helper(void) {
   std::cout << "\tList of every command :" << std::endl;
   std::cout << "\"exit\" or \"quit\" will terminate the program." << std::endl;
   std::cout << "\"add |integer|\" or \"remove |integer|\" will add or remove an item from your cart." << std::endl;
@@ -60,12 +83,12 @@ int		main(int argc, char **argv)
 	cart->clear();
       }
       else if (cmd.find("add")!= std::string::npos) {
-	int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
+	int selector = isValid(color->getSize(), cmd.substr(cmd.find(" ") + 1));
 	if (selector != -1)
 	  cart->add(color->getArrayColor()[selector]);
       }
       else if (cmd.find("remove")!= std::string::npos) {
-	int selector = isValid(color->getSize(), std::stoi(cmd.substr(cmd.find(" ") + 1)));
+	int selector = isValid(color->getSize(), cmd.substr(cmd.find(" ") + 1));
 	if (selector != -1)
 	  cart->removeByIndex(selector);
       }
