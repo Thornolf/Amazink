@@ -67,17 +67,21 @@ void		Receipt::printing() {
     this->_print += " | ";
     this->_print += this->_cart->getItems()[i].getRGB();
     this->_print += " | ";
-    this->_print += this->_cart->getItems()[i].getPrice();
-    this->_print += " $";
+    this->_print += std::to_string(this->_cart->getItems()[i].getPrice());
+    this->_print += " $\n";
   }
-  this->_print += "---------------------------------\n\n";
+  this->_print += "\n---------------------------------\n\n";
   this->_print +="The amout is : ";
   this->_print += std::to_string(this->_total);
-  this->_print += "\n";
+  this->_print += " $\n";
+  this->_print += "\nThank you for purchasing on Amazink !\nHave a nice day !\n";
   std::time_t result = std::time(nullptr);
   std::asctime(std::localtime(&result));
   this->_fileName += std::to_string(result);
   this->_fileName += ".txt";
+  std::string logDirectory = "log/";
+  logDirectory += this->_fileName;
+  this->_fileName = logDirectory;
   std::ofstream outfile (this->_fileName);
   outfile << this->_print << std::endl;
   outfile.close();
