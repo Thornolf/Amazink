@@ -124,5 +124,6 @@ int		main(int argc, char **argv)
     std::cout << "The program will have to shutdown, please contact your local administrator." << std::endl;
     std::cout << "Or contact us at contact@amazink.ca" << std::endl;
   }
+  std::cout << "test.";
   return (0);
 }

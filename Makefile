@@ -22,6 +22,7 @@ $(BINARY):				$(OBJ_BINARY)
 
 clean:
 					$(RM) $(OBJ_BINARY)
+					$(RM) $(TMP_FILE)
 
 fclean:					clean
 					$(RM) $(BINARY)
