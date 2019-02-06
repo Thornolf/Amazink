@@ -77,6 +77,7 @@ int		main(int argc, char **argv)
   try {
     ColorChart *color = new ColorChart("couleurs.txt");
     Cart *cart = new Cart();
+    std::cout << "> ";
     while (cmd != "exit" && cmd != "quit") {
       std::getline(std::cin, cmd);
       if (cmd == "clear") {
@@ -117,6 +118,7 @@ int		main(int argc, char **argv)
       }
       else
 	wrongCommand();
+    std::cout << "> ";
     }
   }
   catch (std::string e) {
