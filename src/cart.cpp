@@ -93,6 +93,7 @@ void	Cart::clear() {
 void	Cart::display() const {
   if (this->_size == 0)
     std::cout << "The cart is empty." << std::endl;
+  std::cout << "\nThe cart contains :" << std::endl;
   for (int i = 0; i < this->_size; i++) {
     std::cout << "[" << i << "] ";
     this->_items[i].dump();

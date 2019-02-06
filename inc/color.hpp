@@ -9,6 +9,7 @@ private:
   std::string	_name;
   std::string	_rgb;
   int		_price;
+  
 public:
   Color();
   Color(std::string, std::string);
@@ -19,6 +20,7 @@ public:
   void		setName(std::string);
   void		setRGB(std::string);
   void		setPrice(int);
+  int		hexToDec(std::string);
   void		dump();
   Color		&operator=(Color const &);
   virtual ~Color();
