@@ -5,7 +5,7 @@ You can purchase a loot of ink from our store based in Quebec City.
 
 ## How to use
 
-To use it just use the command `makè` at the root of the directory and execute the binary via ̀`./amazink`
+To use it just use the command `make` at the root of the directory and execute the binary via ̀`./amazink`
 
 ### List of evert commands :
 
